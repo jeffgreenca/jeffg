@@ -1,33 +1,73 @@
 body {
-    font-family: Courier New;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #eee;
+    color: #333;
+    line-height: 1.6;
 }
-div {
+
+header {
+    background: #fff;
     padding: 20px;
-    width: 300px;
+    text-align: center;
 }
-h1 {
-    font-family: Verdana;
+
+main {
+    background: #fff;
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 100px;
+}
+
+.social-links {
+    text-align: center;
     padding: 20px;
-    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
-span {
-    padding-left: 10px;
-    padding-right: 10px;
+
+.link-container {
+    margin: 10px;
+    text-align: center;
 }
-a.subtle {
-    color: black;
+
+.link-icon {
+    display: block;
+    margin-bottom: 8px;
     text-decoration: none;
+    color: #333;
 }
-a:hover {
-    color: blue;
-}
-#nav {
-    font-size: 1.2em;
-}
-.ico {
+
+.link-icon img {
     width: 32px;
     height: 32px;
+    vertical-align: middle;
 }
-.fade {
+
+.link-icon span {
+    display: block;
+    font-size: 14px;
+}
+
+.signature {
+    font-family: 'Courier New', Courier, monospace;
     color: #5c5c5c;
+    text-align: center;
+}
+.footer {
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .social-links {
+        flex-direction: column;
+    }
 }
