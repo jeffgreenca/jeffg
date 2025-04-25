@@ -1,7 +1,58 @@
 <html>
+
 <head>
+    <!-- <meta http-equiv="refresh" content="1"> -->
     <title>Check</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 </head>
+<style>
+    :root {
+        --font-family: Arial;
+        --font-size: 1em;
+    }
+
+    .wordlist {
+        display: none;
+        font-family: var(--font-family);
+        font-size: calc(var(--font-size) - 0.2em);
+
+        border: 1px solid grey;
+        border-radius: 4px;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+
+    .container > * {
+        flex-basis: 50ch;
+        flex-grow: 1;
+        flex-shrink: 1;
+
+        font-family: var(--font-family);
+        font-size: var(--font-size);
+
+        border: 1px solid grey;
+        border-radius: 4px;
+    }
+
+    #textInput {
+        min-height: 10em;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    .footer {
+        font-size: 0.6em;
+        font-style: italic;
+    }
+</style>
 <script>
     const terms_csl = "npgvivfz,npgvivfgf,nqibpnpl,nqibpngr,nqibpngrf,oneevre,oneevref,ovnfrq,ovnfrq gbjneq,ovnfrf,ovnfrf gbjneqf,ovcbp,oynpx naq yngvak,pbzzhavgl qvirefvgl,pbzzhavgl rdhvgl,phygheny qvssreraprf,phygheny urevgntr,phyghenyyl erfcbafvir,qvfnovyvgvrf,qvfnovyvgl,qvfpevzvangrq,qvfpevzvangvba,qvfpevzvangbel,qvirefr onpxtebhaqf,qvirefr pbzzhavgvrf,qvirefr pbzzhavgl,qvirefr tebhc,qvirefr tebhcf,qvirefvsvrq,qvirefvsl,qvirefvslvat,qvirefvgl naq vapyhfvba,qvirefvgl rdhvgl,raunapr gur qvirefvgl,raunapvat qvirefvgl,rdhnyvgl,rdhny bccbeghavgl,rdhvgnoyr,rdhvgl,rguavpvgl,rkpyhqrq,srznyr,srznyrf,sbfgrevat vapyhfvivgl,traqre,traqre qvirefvgl,traqref,ungr fcrrpu,uvfcnavp zvabevgl,uvfgbevpnyyl,vqrbybtl,Itog,vzzvtenagf,vzcyvpvg ovnf,vzcyvpvg ovnfrf,vapyhfvba,vapyhfvir,vapyhfvir yrnqrefuvc,vapyhfvirarff,vapyhfvivgl,vapernfr qvirefvgl,vapernfr gur qvirefvgl,vaqvtrabhf,vaqvtrabhf pbzzhavgl,vaqvtrabhf pbzzhavgl/crbcyr,vardhnyvgvrf,vardhnyvgl,vardhvgnoyr,vardhvgvrf,vawhfgvpr,vafgvghgvbany,vagrefrpgvbany,vagrefrpgvbanyvgl,vagrefrk,vffhrf pbapreavat craqvat yrtvfyngvba,whfgvpr40,xrl tebhcf,xrl crbcyr,xrl cbchyngvbaf,Lngvak,yrfovna,LGBT,LGBTQ,ybj-rzvffvba iruvpyr,ybj-vapbzr ubhfvat,znyr qbzvangrq,znetvanyvmr,znetvanyvmrq,znevwhnan,zrnfyrf,zrzoenar svygengvba,zragny urnygu,zra jub unir frk jvgu zra,zrgunar rzvffvbaf,zvpebcynfgvpf,zvabevgvrf,zvabevgl,zvabevgl freivat vafgvghgvba,zbfg evfx,MSI,zfz,zhygvphygheny,Mk,Nngvir Azrevpna,NCI ohqtrg,aba-ovanel,abaovanel,aba-pbasbezvat,abacbvag fbhepr cbyyhgvba,ahpyrne raretl,ahpyrne cbjre,borfvgl,bcvbvqf,bccerffvba,bccerffvir,bevragngvba,cnafrkhny,PCB,crnahg nyyretvrf,crbcyr-pragrerq pner,crbcyr bs pbybe,crbcyr + hgrehf,crefba-pragrerq,crefba-pragrerq pner,PFAS,PFOA,cubgbibygnvp,cbynevmngvba,cbyvgvpny,cbyyhgvba,cbyyhgvba nongrzrag,cbyyhgvba erzrqvngvba,cersnoevpngrq ubhfvat,certanag crbcyr,certanag crefba,certanag crefbaf,cerwhqvpr,cevivyrtr,cevivyrtrf,cebzbgr,cebzbgr qvirefvgl,cebzbgvat qvirefvgl,cebabha,cebabhaf,cebfgvghgr,clebylfvf,QT,dhrre,enpr,enpr naq rguavpvgl,enpvny,enpvny qvirefvgl,enpvny vqragvgl,enpvny vardhnyvgl,enpvny vardhvgl,enpvny whfgvpr,enpvnyyl,enpvfz,ehabss,eheny jngre,fnsr qevaxvat jngre,fpvrapr-onfrq,frqvzrag erzrqvngvba,frtertngvba,frys-nffrffrq,frafr bs orybatvat,frk,frkhnyvgl,frkhny cersreraprf,fbpvny whfgvpr,fbpvb phygheny,fbpvbphygheny,fbpvb rpbabzvp,fbpvbrpbabzvp,fbpvbrpbabzvp fgnghf,fbvy cbyyhgvba,fbyne raretl,fbyne cbjre,fcrpvny cbchyngvbaf,fgnghf,fgrz pryy be srgny gvffhr erfrnepu,fgrerbglcr,fgrerbglcrf,fhofvqvmrq ubhfvat,fhfgnvanoyr pbafgehpgvba,flfgrzvp,gurl/gurz,gvyr qenvantr,gbcvpf bs srqreny vairfgvtngvbaf,gbcvpf gung unir erprvirq erprag nggragvba sebz Cbaterff,gbcvpf gung unir erprvirq jvqrfcernq be pevgvpny zrqvn nggragvba,genaf,genafrkhny,genaftraqre,genafvgvbany ubhfvat,genhzn,genhzngvp,gevony,gjb-fcvevg,hapbafpvbhf ovnf,haqre nccerpvngrq,haqrecevivyrtrq,haqreercerfragngvba,haqre ercerfragrq,haqreercerfragrq,haqre freirq,haqrefreirq,haqrefghqvrq,haqreinyhrq,inppvarf,ivpgvz,ivpgvzf,ihyarenoyr,ihyarenoyr cbchyngvbaf,jngre pbyyrpgvba,jngre pbafreingvba,jngre qvfgevohgvba,jngre rssvpvrapl,jngre znantrzrag,jngre cbyyhgvba,jngre dhnyvgl,jngre fgbentr,jngre gerngzrag,jvaq cbjre,jbzna,jbzra,jbzra naq haqreercerfragrq";
 
@@ -19,24 +70,70 @@
 
     function updateDisplay() {
         const inputText = document.getElementById("textInput").value;
-        const outputText = highlightTerms(inputText);
-        document.getElementById("textOutput").innerHTML = outputText;
+        const result = check(inputText);
+        if (result.found) {
+            document.getElementById("textOutput").innerHTML = result.text;
+        } else {
+            document.getElementById("textOutput").innerHTML = `<p>No matching phrases found (checked ${result.wordCount} words).</p>`;
+        }
     }
-    function highlightTerms(text) {
+
+    function check(text) {
+        let found = false;
+
         let highlightedText = text;
         terms.forEach(term => {
             const regex = new RegExp(`\\b(${term})\\b`, 'gi');
-            highlightedText = highlightedText.replace(regex, '<span style="background-color: yellow;">$1</span>');
+            if (!found && regex.test(text)) {
+                found = true;
+            }
+            highlightedText = highlightedText.replace(regex, '<span style="background-color: yellow; font-style: italic; font-weight: bold;">$1</span>');
         });
-        return highlightedText;
+        return {text: highlightedText, found, wordCount: text.length > 0 ? text.trim().split(/\s+/).length : 0};
     }
+
+    function displayWordList(show) {
+        const el = document.querySelector('.wordlist');
+        if (show) {
+            const list = terms.join(", ");
+            el.innerHTML = `<p>${list}</p>`;
+            el.style.display = 'block';
+        } else {
+            el.style.display = 'none';
+        }
+    }
+
+    function clearDisplay() {
+        const el = document.getElementById('textInput');
+        if (el.value === '' || confirm('Start over?')) {
+            el.value = '';
+            updateDisplay();
+        }
+    }
+
+    setTimeout(() => {
+        updateDisplay();
+    }, 10);
 
 </script>
 
 <body>
-<div style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: nowrap;">
-    <textarea id="textInput" style="width: 45%; height: 300px; resize: vertical;" placeholder="Paste your text here..." onchange="updateDisplay()" onkeyup="updateDisplay()"></textarea>
-    <div id="textOutput" style="width: 45%; height: 80%; overflow-y: auto; border: 1px solid #ccc; padding: 10px; background-color: #f9f9f9; resize: vertical;"></div>
-</div>
+    <div class="controls">
+        <button onclick="updateDisplay()">Update</button>
+        <button onclick="clearDisplay()">Reset</button>
+        <input type="checkbox" onchange="displayWordList(this.checked);">Display phrases</input>
+    </div>
+    <div class="wordlist">
+    </div>
+    <div class="container">
+        <textarea id="textInput" placeholder="Paste your text here..." onchange="updateDisplay()"
+            onkeyup="updateDisplay()"></textarea>
+        <div id="textOutput"></div>
+    </div>
+
+    <div class="footer">
+        <p>Please send feedback to <a href="mailto:jeffgreenca@protonmail.com?subject=checker-feedback">jeffgreenca@protonmail.com</a></p>
+    </div>
 </body>
+
 </html>
